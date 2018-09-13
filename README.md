@@ -11,7 +11,7 @@ Example combine Socket.IO with CodeIgniter
 var socket = io.connect('http://'+window.location.hostname+':3000' );
 
 socket.emit('new_message', {
-	room: '<?=base_url();?>',
+	room: base_url,
 	id: data.id,
 	post_id: data.post_id,
 	name: data.name,
@@ -33,7 +33,7 @@ var socket = io.connect('http://'+window.location.hostname+':3000');
 // Init room, will get response from only room
 
 socket.on('connect', function() {
-	socket.emit('room', '<?=base_url();?>');
+	socket.emit('room', base_url);
 });
 
 
